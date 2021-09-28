@@ -1,7 +1,6 @@
 *
 {
     text-align: center;
-
 }
 
 body
@@ -25,7 +24,20 @@ h1
     left: 0;
     bottom: 0;
     right: 0;
-    z-index: 5;
+    z-index: 2;
+}
+
+#modal
+{
+    background-color: rgb(166, 255, 0);
+    width: 20%;
+    padding: 15px;
+    border-radius: 8px;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
 }
 
 #new-todo-btn

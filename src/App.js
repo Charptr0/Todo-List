@@ -1,11 +1,11 @@
-import CreateNewTodo from "./components/CreateNewTodo"
+import CreateTodoButton from "./components/CreateTodoButton"
 
 
 function App() {
   return (
     <div>
       <h1>Personal Todo List</h1>
-      <CreateNewTodo />
+      <CreateTodoButton />
     </div>
   );
 }

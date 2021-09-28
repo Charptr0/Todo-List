@@ -1,7 +1,8 @@
 import {useState} from "react"
+import Modal from "./Modal";
 import Overlay from "./Overlay";
 
-function CreateNewTodo(props)
+function CreateTodoButton(props)
 {
     const [overlayIsOpen, setOverlay] = useState(false);
 
@@ -17,8 +18,9 @@ function CreateNewTodo(props)
         <div>
             <button id="new-todo-btn" onClick={openOverlay}></button>
             {overlayIsOpen ? <Overlay onClick={closeOverlay}/> : null}
+            {overlayIsOpen ? <Modal  onConfirmed={closeOverlay}/> : null}
         </div>
     )
 }
 
-export default CreateNewTodo;
+export default CreateTodoButton;
