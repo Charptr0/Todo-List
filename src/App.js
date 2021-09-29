@@ -1,6 +1,5 @@
 import CreateTodoButton from "./components/CreateTodoButton"
 
-
 function App() {
   return (
     <div>

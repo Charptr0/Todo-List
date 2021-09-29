@@ -51,3 +51,13 @@ h1
     z-index: 1;
     cursor: pointer;
 }
+
+#todo-box
+{
+    background-color: rgb(254, 161, 0);
+    color: black;
+    border-radius: 8px;
+    padding: 5px;
+    width: 20em;
+    margin-top: 50px
+}

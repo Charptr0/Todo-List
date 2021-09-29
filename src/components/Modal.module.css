@@ -1,3 +1,8 @@
+*
+{
+	text-align: center;
+}
+
 .txt
 {
 	font-size: 20px;
@@ -16,6 +21,33 @@
 #desc_input
 {
 	text-align: left;
+}
+
+#priority_selection
+{
+	width: 120px;
+	cursor: pointer;
+	font-size: auto;
+}
+
+#low
+{
+	background-color: green;
+}
+
+#med
+{
+	background-color: yellow;
+}
+
+#high
+{
+	background-color: red;
+}
+
+.top
+{
+	background-color: black;
 }
 
 .fade_in 
