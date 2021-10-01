@@ -8,6 +8,14 @@
 {
     text-align: left;
     font-size: 15px;
-    margin-top: -20px;
+}
+
+#delete_btn
+{
+    background-color: green;
+    color: white;
+    border-radius: 8px;
+    float: right;
+    font-size: 20px;
 }
 

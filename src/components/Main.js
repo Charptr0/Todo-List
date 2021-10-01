@@ -1,11 +1,10 @@
 import {useState} from "react"
-import Modal from "./Modal";
+import CreateTaskModal from "./CreateTaskModal";
 import Overlay from "./Overlay";
 import TodoBox from "./TodoBox";
+import TodoList from "./TodoList";
 
-let tasks = []
-
-function CreateTodoButton(props)
+function Main(props)
 {
     const [overlayIsOpen, setOverlay] = useState(false);
 
@@ -19,8 +18,8 @@ function CreateTodoButton(props)
 
     function taskConfirmed(){
         setOverlay(false);
-        tasks.push({"Title" : "hi",
-        "Desc" : "hello",
+        props.data.push({"title" : "hi",
+        "desc" : "hello",
         "priority" : "high"})
     }
 
@@ -28,12 +27,12 @@ function CreateTodoButton(props)
         <div>
             <button id="new-todo-btn" onClick={openOverlay}></button>
             {overlayIsOpen ? <Overlay onClick={closeOverlay}/> : null}
-            {overlayIsOpen ? <Modal  onConfirmed={taskConfirmed}/> : null}
-            {
-                tasks.map((tasks)=> <TodoBox title={tasks.Title} desc={tasks.Desc} priority={tasks.priority}/>)
-            }
+            {overlayIsOpen ? <CreateTaskModal  onConfirmed={taskConfirmed}/> : null}
+            <br></br>
+            
+            <TodoList data={props.data}/>
         </div>
     )
 }
 
-export default CreateTodoButton;
+export default Main;

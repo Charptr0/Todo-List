@@ -1,10 +1,12 @@
-import CreateTodoButton from "./components/CreateTodoButton"
+import Main from "./components/Main"
+
+const tasks = [];
 
 function App() {
   return (
     <div>
       <h1>Personal Todo List</h1>
-      <CreateTodoButton />
+      <Main data={tasks} />
     </div>
   );
 }
