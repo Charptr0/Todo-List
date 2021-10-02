@@ -1,7 +1,6 @@
 import {useState} from "react"
 import CreateTaskModal from "./CreateTaskModal";
 import Overlay from "./Overlay";
-import TodoBox from "./TodoBox";
 import TodoList from "./TodoList";
 
 function Main(props)
