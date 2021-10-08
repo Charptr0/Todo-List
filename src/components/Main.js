@@ -1,9 +1,11 @@
 import {useState} from "react"
 import CreateTaskModal from "./CreateTaskModal";
 import Overlay from "./Overlay";
-import TodoList from "./TodoList";
+import Todo from "./Todo"
 
-function Main(props)
+const tasks = [];
+
+function Main()
 {
     const [overlayIsOpen, setOverlay] = useState(false);
 
@@ -17,9 +19,14 @@ function Main(props)
 
     function taskConfirmed(){
         setOverlay(false);
-        props.data.push({"title" : "hi",
+        tasks.push({"title" : "hi",
         "desc" : "hello",
         "priority" : "high"})
+    }
+
+    function onDelete()
+    {
+        console.log("hi")
     }
 
     return (
@@ -28,8 +35,9 @@ function Main(props)
             {overlayIsOpen ? <Overlay onClick={closeOverlay}/> : null}
             {overlayIsOpen ? <CreateTaskModal  onConfirmed={taskConfirmed}/> : null}
             <br></br>
-            
-            <TodoList data={props.data}/>
+
+            <Todo  data={tasks}/>
+
         </div>
     )
 }
