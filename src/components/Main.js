@@ -3,7 +3,7 @@ import CreateTaskModal from "./CreateTaskModal";
 import Overlay from "./Overlay";
 import Todo from "./Todo"
 
-const tasks = [];
+let tasks = [];
 
 function Main()
 {
@@ -24,9 +24,9 @@ function Main()
         "priority" : "high"})
     }
 
-    function onDelete()
+    function onDelete(data)
     {
-        console.log("hi")
+        tasks = data;
     }
 
     return (
@@ -36,7 +36,7 @@ function Main()
             {overlayIsOpen ? <CreateTaskModal  onConfirmed={taskConfirmed}/> : null}
             <br></br>
 
-            <Todo  data={tasks}/>
+            <Todo  data={tasks} onDelete={onDelete}/>
 
         </div>
     )

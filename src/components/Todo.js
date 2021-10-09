@@ -11,6 +11,16 @@ class Todo extends react.Component
         }
     }
 
+    deleteEntry = (index) =>
+    {
+        let arr = this.state["tasks"].splice(index, 1);
+        this.setState({
+            tasks : arr
+        })
+
+        this.props.onDelete(arr);
+    }
+
     render() {
         return (
             <div>
@@ -20,6 +30,7 @@ class Todo extends react.Component
                         desc={task.desc} 
                         priority={task.priority}
                         index = {index}
+                        deleteEntry={this.deleteEntry}
                         />
                 </div>)}
         </div>
