@@ -7,24 +7,19 @@ class Todo extends react.Component
     {
         super(props);
         this.state = {
-            tasks : props.data
+            data : props.data
         }
     }
 
     deleteEntry = (index) =>
     {
-        let arr = this.state["tasks"].splice(index, 1);
-        this.setState({
-            tasks : arr
-        })
-
-        this.props.onDelete(arr);
+        this.props.onDelete(index);
     }
 
     render() {
         return (
             <div>
-            {this.state.tasks.map((task, index)=> 
+            {this.state.data.map((task, index)=> 
                 <div id="task-div">
                     <TodoBox title={task.title} 
                         desc={task.desc} 
