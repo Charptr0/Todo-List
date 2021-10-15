@@ -1,7 +1,7 @@
 import react from "react";
 import CreateTaskModal from "./CreateTaskModal";
 import Overlay from "./Overlay";
-import Todo from "./Todo"
+import TodoBox from "./TodoBox";
 
 class Main extends react.Component
 {
@@ -37,13 +37,13 @@ class Main extends react.Component
         this.setState({
             tasks : arr,
         })
-
-        console.log(this.state.tasks);
     }
 
     onDelete = (index) =>
     {
-
+        const arr = this.state.tasks;
+        arr.splice(index, 1);
+        this.setState({tasks : arr});
     }
 
     render(){
@@ -54,8 +54,15 @@ class Main extends react.Component
                 {this.state.overlayIsOpen ? <CreateTaskModal  onConfirmed={this.taskConfirmed}/> : null}
                 <br></br>
                 
-                <Todo data={this.state.tasks} onDelete={this.onDelete} />
-    
+                {this.state.tasks.map((task, key)=> 
+                <div id="task-div">
+                    <TodoBox title={task.title} 
+                        desc={task.desc} 
+                        priority={task.priority}
+                        index = {key}
+                        deleteEntry={this.onDelete}
+                        />
+                </div>)}
             </div>
         )
     }

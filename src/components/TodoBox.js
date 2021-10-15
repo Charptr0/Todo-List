@@ -17,6 +17,7 @@ class TodoBox extends react.Component
             <p id={styles.title}><strong>{this.props.title}</strong></p>
             <p id={styles.desc}>{this.props.desc}</p>
             <p>{this.props.priority}</p>
+            <p>{this.props.index}</p>
             <button id={styles.delete_btn} onClick={this.onDelete}><strong>Delete</strong></button>
         </div>)
     }
