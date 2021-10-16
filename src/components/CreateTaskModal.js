@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import styles from "./Modal.module.css";
 
 class CreateTaskModal extends React.Component
@@ -43,14 +43,19 @@ class CreateTaskModal extends React.Component
         return (
             <div id="modal" className={styles.fade_in}>
                 <form onSubmit={this.onSubmit}>
-                    <label id="todo-name" htmlFor="task-name" class={styles.txt}><strong>The Name of the Task</strong></label>
-                    <input type="text" id={styles.task_name_input} required id="task-name" ref={this.taskName}></input>
+                    <label id="todo-name" htmlFor="task-name" className={styles.txt}><strong>The Name of the Task</strong></label>
+                    <br></br>
+                    <input type="text" id={styles.task_name_input} className={styles.input} name="task-name" ref={this.taskName}></input>
+                    <br></br>
 
-                    <label id="todo-desc" htmlFor="task-desc" class={styles.txt}><strong>Description</strong></label>
-                    <input type="text" id={styles.desc_input} required id="task-desc" ref={this.taskDesc}></input>
-
-                    <label id="todo-priority" htmlFor="task-priority" class={styles.txt}><strong>Priority Level</strong></label>
-                    <select id={styles.priority_selection} required id="task-priority" ref={this.taskPriority}>
+                    <label id="todo-desc" htmlFor="task-desc" className={styles.txt}><strong>Description</strong></label>
+                    <br></br>
+                    <input type="text" id={styles.desc_input} name="task-desc" className={styles.input} ref={this.taskDesc}></input>
+                    <br></br>
+                    
+                    <label id="todo-priority" htmlFor="task-priority" className={styles.txt}><strong>Priority Level</strong></label>
+                    <br></br>
+                    <select id={styles.priority_selection} name="task-priority" className={styles.input} ref={this.taskPriority}>
                         <option id={styles.low}>Low</option>
                         <option id={styles.med}>Medium</option>
                         <option id={styles.high}>High</option>

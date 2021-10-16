@@ -5,7 +5,14 @@
 
 .txt
 {
-	font-size: 20px;
+	font-size: 25px;
+}
+
+.input
+{
+	width: 50%;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 #confirm_btn
@@ -21,11 +28,13 @@
 #desc_input
 {
 	text-align: left;
+	margin-top: 10px;
 }
 
 #priority_selection
 {
 	width: 120px;
+	margin-top: 10px;
 	cursor: pointer;
 	font-size: auto;
 }

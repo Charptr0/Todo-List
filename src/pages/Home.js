@@ -9,9 +9,18 @@ class Home extends React.Component
     constructor()
     {
         super();
+
+        const rawUserData = localStorage.getItem("main");
+        let userData = [];
+
+        if(rawUserData)
+        {
+            userData = JSON.parse(rawUserData);
+        }
+
         this.state = {
             overlayIsOpen : false,
-            tasks : []
+            tasks : userData
         }
     }
 
@@ -38,6 +47,8 @@ class Home extends React.Component
         this.setState({
             tasks : arr
         })
+
+        localStorage.setItem("main", JSON.stringify(arr));
     }
 
     //deleting an todo box
@@ -46,6 +57,7 @@ class Home extends React.Component
         const arr = this.state.tasks;
         arr.splice(index, 1);
         this.setState({tasks : arr});
+        localStorage.setItem("main", JSON.stringify(arr));
     }
 
     render(){
