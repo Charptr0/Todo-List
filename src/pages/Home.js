@@ -29,13 +29,11 @@ class Home extends React.Component
         })
     }
 
-    taskConfirmed = () => {
+    taskConfirmed = (userCreatedTask) => {
         this.closeOverlay();
 
         const arr = this.state.tasks;
-        arr.push({"title" : "hi",
-        "desc" : "hello",
-        "priority" : "high"})
+        arr.push(userCreatedTask);
 
         this.setState({
             tasks : arr
