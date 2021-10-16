@@ -1,25 +1,28 @@
-import react from "react";
-import CreateTaskModal from "./CreateTaskModal";
-import Overlay from "./Overlay";
-import TodoBox from "./TodoBox";
+import React from "react";
+import CreateNewTaskBtn from "../components/CreateNewTaskBtn";
+import CreateTaskModal from "../components/CreateTaskModal";
+import Overlay from "../components/Overlay";
+import TodoList from "../components/TodoList";
 
-class Main extends react.Component
+class Home extends React.Component
 {
     constructor()
     {
         super();
         this.state = {
             overlayIsOpen : false,
-            tasks : [],
+            tasks : []
         }
     }
 
+    //open the gray overlay
     openOverlay = () => {
         this.setState({
             overlayIsOpen : true,
         })
     }
 
+    //close the gray overlay
     closeOverlay = () => {
         this.setState({
             overlayIsOpen : false,
@@ -28,18 +31,19 @@ class Main extends react.Component
 
     taskConfirmed = () => {
         this.closeOverlay();
-        
+
         const arr = this.state.tasks;
         arr.push({"title" : "hi",
         "desc" : "hello",
         "priority" : "high"})
 
         this.setState({
-            tasks : arr,
+            tasks : arr
         })
     }
 
-    onDelete = (index) =>
+    //deleting an todo box
+    onDeleteHandler = (index) =>
     {
         const arr = this.state.tasks;
         arr.splice(index, 1);
@@ -49,23 +53,16 @@ class Main extends react.Component
     render(){
         return (
             <div>
-                <button id="new-todo-btn" onClick={this.openOverlay}></button>
+                <h1>Personal Todo List</h1>
+                <CreateNewTaskBtn createATask={this.openOverlay} />
                 {this.state.overlayIsOpen ? <Overlay onClick={this.closeOverlay}/> : null}
                 {this.state.overlayIsOpen ? <CreateTaskModal  onConfirmed={this.taskConfirmed}/> : null}
                 <br></br>
-                
-                {this.state.tasks.map((task, key)=> 
-                <div id="task-div">
-                    <TodoBox title={task.title} 
-                        desc={task.desc} 
-                        priority={task.priority}
-                        index = {key}
-                        deleteEntry={this.onDelete}
-                        />
-                </div>)}
+
+                <TodoList data={this.state.tasks} onDelete={this.onDeleteHandler}/>
             </div>
         )
     }
 }
 
-export default Main;
+export default Home;

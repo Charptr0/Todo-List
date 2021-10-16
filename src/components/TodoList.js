@@ -1,20 +1,34 @@
+import React from "react";
 import TodoBox from "./TodoBox";
 
-function TodoList(props)
+class TodoList extends React.Component
 {
+    constructor(props)
+    {
+        super(props);
+    }
 
-    return (
-        <div>
-            {props.data.map((tasks, index)=> 
-                <div id="task-div">
-                    <TodoBox title={tasks.title} 
-                        desc={tasks.desc} 
-                        priority={tasks.priority}
-                        index = {index}
-                        onDelete={props.onDelete()}/>
-                </div>)}
-        </div>
-    )
+    deleteEntry = (index) =>
+    {
+        this.props.onDelete(index);
+    }
+
+    render()
+    {
+        return (
+            <div>
+                {this.props.data.map((task, key)=> 
+                    <div id="task-div">
+                        <TodoBox title={task.title} 
+                            desc={task.desc} 
+                            priority={task.priority}
+                            index = {key}
+                            deleteEntry={this.deleteEntry}
+                            />
+                    </div>)}
+             </div>
+        )
+    }
 }
 
 export default TodoList;

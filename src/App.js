@@ -1,12 +1,21 @@
-import Main from "./components/Main"
+import {Switch, Route, Link} from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
 
-function App() {
+function App() 
+{
   return (
     <div>
-      <h1>Personal Todo List</h1>
-      <Main />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/about">
+          <About />
+        </Route>
+      </Switch>
     </div>
-  );
+  )
 }
 
 export default App;
