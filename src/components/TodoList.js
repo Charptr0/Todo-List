@@ -18,7 +18,7 @@ class TodoList extends React.Component
         return (
             <div>
                 {this.props.data.map((task, key)=> 
-                    <div id="task-div">
+                    <div id="task-div" >
                         <TodoBox title={task.title} 
                             desc={task.desc} 
                             priority={task.priority}

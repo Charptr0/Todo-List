@@ -10,11 +10,12 @@ class TodoBox extends React.Component
 
     //pass the box index up to main
     deleteTodoPasser = () => {
-        this.props.deleteEntry(this.props.index)
+        this.props.deleteEntry(this.props.index);
     }
 
     render() {
-        return (<div id="todo-box">
+        return (<div id="todo-box" className={
+                this.props.priority === "Low" ? styles.low_priority : (this.props.priority === "Medium" ? styles.med_priority : styles.high_priority)}>
             <p id={styles.title}><strong>{this.props.title}</strong></p>
             <p id={styles.desc}>{this.props.desc}</p>
             <p>Priority: {this.props.priority}</p>

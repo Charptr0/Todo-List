@@ -10,6 +10,7 @@ class Home extends React.Component
     {
         super();
 
+        //grab todo from memory
         const rawUserData = localStorage.getItem("main");
         let userData = [];
 
@@ -38,6 +39,7 @@ class Home extends React.Component
         })
     }
 
+    //append a new entry to the array
     taskConfirmed = (userCreatedTask) => {
         this.closeOverlay();
 
@@ -48,6 +50,7 @@ class Home extends React.Component
             tasks : arr
         })
 
+        //store the new entry into local storage
         localStorage.setItem("main", JSON.stringify(arr));
     }
 
@@ -57,6 +60,8 @@ class Home extends React.Component
         const arr = this.state.tasks;
         arr.splice(index, 1);
         this.setState({tasks : arr});
+
+        //remove the entry into local storage
         localStorage.setItem("main", JSON.stringify(arr));
     }
 

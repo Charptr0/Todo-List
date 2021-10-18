@@ -19,3 +19,24 @@
     font-size: 20px;
 }
 
+.high_priority
+{
+    background-color: red;
+}
+
+.med_priority
+{
+    background-color: orange;
+}
+
+.low_priority
+{
+    background-color: rgb(56, 238, 11);
+}
+
+.no_priority
+{
+    background-color: white;
+}
+
+

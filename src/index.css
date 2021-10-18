@@ -54,12 +54,11 @@ h1
 
 #todo-box
 {
-    background-color: rgb(254, 161, 0);
     color: black;
     border-radius: 8px;
     padding: 5px;
     width: 30em;
-    margin-top: 50px
+    margin-top: 50px;
 }
 
 #task-div
