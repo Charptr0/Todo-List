@@ -1,4 +1,5 @@
 import React from "react";
+import TraverseBtn from "../components/TraverseBtn";
 import CreateNewTaskBtn from "../components/CreateNewTaskBtn";
 import CreateTaskModal from "../components/CreateTaskModal";
 import Overlay from "../components/Overlay";
@@ -11,9 +12,10 @@ class Home extends React.Component
         super();
 
         //grab todo from memory
-        const rawUserData = localStorage.getItem("main");
+        const rawUserData = localStorage.getItem("data");
         let userData = [];
 
+        //if data exist in local storage
         if(rawUserData)
         {
             userData = JSON.parse(rawUserData);
@@ -51,7 +53,7 @@ class Home extends React.Component
         })
 
         //store the new entry into local storage
-        localStorage.setItem("main", JSON.stringify(arr));
+        localStorage.setItem("data", JSON.stringify(arr));
     }
 
     //deleting an todo box
@@ -62,7 +64,7 @@ class Home extends React.Component
         this.setState({tasks : arr});
 
         //remove the entry into local storage
-        localStorage.setItem("main", JSON.stringify(arr));
+        localStorage.setItem("data", JSON.stringify(arr));
     }
 
     render(){
@@ -72,6 +74,8 @@ class Home extends React.Component
                 <CreateNewTaskBtn createATask={this.openOverlay} />
                 {this.state.overlayIsOpen ? <Overlay onClick={this.closeOverlay}/> : null}
                 {this.state.overlayIsOpen ? <CreateTaskModal  onConfirmed={this.taskConfirmed}/> : null}
+                <TraverseBtn txt="About" to="/about"/>
+
                 <br></br>
 
                 <TodoList data={this.state.tasks} onDelete={this.onDeleteHandler}/>

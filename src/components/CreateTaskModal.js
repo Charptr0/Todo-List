@@ -11,6 +11,7 @@ class CreateTaskModal extends React.Component
         this.taskPriority = React.createRef();
     }
 
+    //create a task after clicking the confirmation button
     onSubmit = (event) =>
     {
         event.preventDefault();
@@ -19,11 +20,13 @@ class CreateTaskModal extends React.Component
         let desc = this.taskDesc.current.value;
         const priority = this.taskPriority.current.value;
 
+        //if title DNE
         if(title === "")
         {
             title = "Untitled Task";
         }
 
+        //if desc DNE
         if(desc === "")
         {
             desc = "No description provided";

@@ -8,7 +8,7 @@ class TodoBox extends React.Component
         super(props);
     }
 
-    //pass the box index up to main
+    //pass the box index down the call stack
     deleteTodoPasser = () => {
         this.props.deleteEntry(this.props.index);
     }
