@@ -17,8 +17,8 @@ class TodoBox extends React.Component
         return (<div id="todo-box" className={
                 this.props.priority === "Low" ? styles.low_priority : (this.props.priority === "Medium" ? styles.med_priority : styles.high_priority)}>
             <p id={styles.title}><strong>{this.props.title}</strong></p>
-            <p id={styles.desc}>{this.props.desc}</p>
-            <p>Priority: {this.props.priority}</p>
+            <p id={styles.desc}>Description: {this.props.desc}</p>
+            <p id={styles.priority}>Priority: {this.props.priority}</p>
             <button id={styles.delete_btn} onClick={this.deleteTodoPasser}><strong>Delete</strong></button>
         </div>)
     }
