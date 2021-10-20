@@ -69,7 +69,7 @@ class Home extends React.Component
 
     render(){
         return (
-            <div>
+            <div id="home">
                 <h1>Personal Todo List</h1>
                 <CreateNewTaskBtn createATask={this.openOverlay} />
                 {this.state.overlayIsOpen ? <Overlay onClick={this.closeOverlay}/> : null}
