@@ -3,11 +3,6 @@ import styles from "./TodoBox.module.css"
 
 class TodoBox extends React.Component
 {
-    constructor(props)
-    {
-        super(props);
-    }
-
     //pass the box index down the call stack
     deleteTodoPasser = () => {
         this.props.deleteEntry(this.props.index);

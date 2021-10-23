@@ -3,11 +3,6 @@ import TodoBox from "./TodoBox";
 
 class TodoList extends React.Component
 {
-    constructor(props)
-    {
-        super(props);
-    }
-
     deleteEntry = (index) =>
     {
         this.props.onDelete(index);
@@ -18,7 +13,7 @@ class TodoList extends React.Component
         return (
             <div>
                 {this.props.data.map((task, key)=> 
-                    <div id="task-div" >
+                    <div id="task-div" key={key} >
                         <TodoBox title={task.title} 
                             desc={task.desc} 
                             priority={task.priority}
