@@ -4,7 +4,7 @@ Todo list created using React
 
 ## Features
 - Each task you create have a certain priority level. The color of the task box will change depending on the priority.
-  - Low prority: Green
+  - Low priority: Green
   - Medium priority: Orange
   - High priority: Red
  
